@@ -11,6 +11,17 @@ body{
   margin: auto;
 }
 
+h2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+h2>a {
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .bodycontainer{
   border-radius: 25px;
   background: #fffffe;

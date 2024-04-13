@@ -80,6 +80,10 @@ li {
 
 }
 
+.whitefont {
+	color: #fff !important;
+}
+
 #calc-form {
 	margin-top: 20px;
 	color: black;

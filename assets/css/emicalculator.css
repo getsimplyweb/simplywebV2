@@ -3,12 +3,33 @@ body{
 }
 
 .header {
-  background: #fffffe;
+  background: #008374;
   padding: 10px; 
   width: auto;
   height: auto; 
   text-align: center; 
   margin: auto;
+}
+
+.header .logo img {
+  max-height: 40px;
+  margin-right: 6px;
+}
+
+.header .logo h1 {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  color: #fff;
+  font-family: var(--font-primary);
+  text-decoration: none;
+  text-align: left;
+}
+
+.header .logo h1 span {
+  color: #f96f59;
+  text-decoration: none;
 }
 
 h2 {
@@ -55,7 +76,7 @@ h2>a {
   width: 25px;
   height: 25px;
   border-radius: 50%; 
-  background: #22a53c;
+  background: #008374;
   cursor: pointer;
 }
 
@@ -63,7 +84,7 @@ h2>a {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #22a53c;
+  background: #008374;
   cursor: pointer;
 }
 
@@ -89,7 +110,7 @@ input[type="number"] {
 }
 
 .button {
-  background-color: #04AA6D; /* Green */
+  background-color: #008374; /* Green */
   border: none;
   color: white;
   padding: 16px 32px;
@@ -107,10 +128,10 @@ input[type="number"] {
 .button1 {
   background-color: white; 
   color: black; 
-  border: 2px solid #04AA6D;
+  border: 2px solid #008374;
 }
 
 .button1:hover {
-  background-color: #04AA6D;
+  background-color: #008374;
   color: white;
 }

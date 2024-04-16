@@ -32,15 +32,8 @@ body{
   text-decoration: none;
 }
 
-h2 {
-  display: flex;
-  justify-content: space-between;
-}
-
-h2>a {
-  padding: 10px 0;
-  font-size: 20px;
-  font-weight: bold;
+.header .logo h1 a {
+  text-decoration: none;
 }
 
 .bodycontainer{

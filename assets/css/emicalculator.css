@@ -128,3 +128,8 @@ input[type="number"] {
   background-color: #008374;
   color: white;
 }
+
+.footer-copyright {
+	background: #008374;
+	color: #fff;
+}

@@ -363,13 +363,14 @@
   function loadResult() {
     result = calculateSIP();
     window.scrollBy(0, 350);
-    rf1.innerText = 'Rs. ' + result.expected_amount;
-    rf2.innerText = 'Rs. ' + result.amount_invested;
-    rf3.innerText = 'Rs. ' + result.profit_earned;
+    rf1.innerText = "₹ " + result.expected_amount.toLocaleString('en-IN');
+    rf2.innerText = "₹ " + result.amount_invested.toLocaleString('en-IN');
+    rf3.innerText = "₹ " + result.profit_earned.toLocaleString('en-IN');
     createGraph();
     createTable();
     console.log(result);
   }
+  
   $("#calculatebtn").click(function () {
     val_amnt.style.display = 'none';
     val_rate.style.display = 'none';

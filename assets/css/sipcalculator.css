@@ -44,7 +44,7 @@ li {
 	position: relative;
 }
 
-.header .logo h1 {
+.header .logo {
 	font-size: 30px;
 	margin: 0;
 	font-weight: 600;
@@ -55,7 +55,7 @@ li {
 	text-align: left;
 }
 
-.header .logo h1 span {
+.header .logo span {
 	color: #f96f59;
 	text-decoration: none;
 }

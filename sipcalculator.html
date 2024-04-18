@@ -87,8 +87,8 @@
                       </p>
                       <input type="number" name="" id="expreturn" value="12" required>
 
-                      <!-- Investment Period (Years) -->
-                      <label class="form-field-label" for="first-name" id="field3">Investment Period (Years) : <em
+                      <!-- Investment Period -->
+                      <label class="form-field-label" for="first-name" id="field3">Investment Period: <em
                           class="alert">*</em></label>
                       <br>
                       <p id='val_per' style="color: red; margin-bottom: 0px;" class='valid_deactive'>
@@ -96,8 +96,17 @@
                         Investment Period is required
 
                       </p>
-
-                      <input type="number" name="" id="invstperiod" value="12" required>
+                      <div class="form-wrap" style="display:grid; grid-auto-flow: column;">
+                        <div>
+                          <input type="number" name="" id="invstperiod" value="12" required>
+                        </div>
+                        <div>
+                          <select id="period_type" class="custom-select">
+                            <option value="years" selected>Years</option>
+                            <option value="months">Months</option>
+                          </select>
+                        </div>
+                      </div>
 
                       <!-- Adjust for Inflation -->
                       <br>

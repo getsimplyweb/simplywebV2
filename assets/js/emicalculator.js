@@ -61,6 +61,7 @@ function computeResults(e) {
   const totalPayment = (monthly * calculatedPayments).toFixed(2);
 
   //Show results
+  window.scrollBy(0, 350);
 
   document.getElementById("monthlyPayment").innerHTML = "&#8377;" + Number(monthlyPayment).toLocaleString();
 

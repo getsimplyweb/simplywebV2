@@ -125,21 +125,21 @@ function calculateProjectedData(var_year) {
             if (invst_type.value == 'mon') {
 
                 SIP = (var1 * (((1 + ((var3 / 100) / 12)) ** (var2 * 12)) - 1) * (1 + ((var3 / 100) / 12))) / ((var3 / 100) / 12);
-                result.expected_amount = Math.round(SIP);
-                result.amount_invested = Math.round(var1 * var2 * 12);
-                result.profit_earned = Math.round(SIP - (var1 * var2 * 12));
+                proj_result.expected_amount = Math.round(SIP);
+                proj_result.amount_invested = Math.round(var1 * var2 * 12);
+                proj_result.profit_earned = Math.round(SIP - (var1 * var2 * 12));
             }
             if (invst_type.value == 'week') {
                 SIP = ((var1 * 4) * (((1 + ((var3 / 100) / 12)) ** (var2 * 12)) - 1) * (1 + ((var3 / 100) / 12))) / ((var3 / 100) / 12);
-                result.expected_amount = Math.round(SIP);
-                result.amount_invested = Math.round((var1 * 4) * (var2 * 12));
-                result.profit_earned = Math.round(SIP - ((var1 * 4) * (var2 * 12)));
+                proj_result.expected_amount = Math.round(SIP);
+                proj_result.amount_invested = Math.round((var1 * 4) * (var2 * 12));
+                proj_result.profit_earned = Math.round(SIP - ((var1 * 4) * (var2 * 12)));
             }
             if (invst_type.value == 'quat') {
                 SIP = ((var1 / 4) * (((1 + ((var3 / 100) / 12)) ** (var2 * 12)) - 1) * (1 + ((var3 / 100) / 12))) / ((var3 / 100) / 12);
-                result.expected_amount = Math.round(SIP);
-                result.amount_invested = Math.round((var1 / 4) * (var2 * 12));
-                result.profit_earned = Math.round(SIP - ((var1 / 4) * (var2 * 12)));
+                proj_result.expected_amount = Math.round(SIP);
+                proj_result.amount_invested = Math.round((var1 / 4) * (var2 * 12));
+                proj_result.profit_earned = Math.round(SIP - ((var1 / 4) * (var2 * 12)));
 
             }
         }
@@ -147,21 +147,21 @@ function calculateProjectedData(var_year) {
             if (invst_type.value == 'mon') {
 
                 SIP = (var1 * (((1 + ((var3 / 100) / 12)) ** ((var2 / 12) * 12)) - 1) * (1 + ((var3 / 100) / 12))) / ((var3 / 100) / 12);
-                result.expected_amount = Math.round(SIP);
-                result.amount_invested = Math.round(var1 * (var2 / 12) * 12);
-                result.profit_earned = Math.round(SIP - (var1 * (var2 / 12) * 12));
+                proj_result.expected_amount = Math.round(SIP);
+                proj_result.amount_invested = Math.round(var1 * (var2 / 12) * 12);
+                proj_result.profit_earned = Math.round(SIP - (var1 * (var2 / 12) * 12));
             }
             if (invst_type.value == 'week') {
                 SIP = ((var1 * 4) * (((1 + ((var3 / 100) / 12)) ** ((var2 / 12) * 12)) - 1) * (1 + ((var3 / 100) / 12))) / ((var3 / 100) / 12);
-                result.expected_amount = Math.round(SIP);
-                result.amount_invested = Math.round((var1 * 4) * ((var2 / 12) * 12));
-                result.profit_earned = Math.round(SIP - ((var1 * 4) * ((var2 / 12) * 12)));
+                proj_result.expected_amount = Math.round(SIP);
+                proj_result.amount_invested = Math.round((var1 * 4) * ((var2 / 12) * 12));
+                proj_result.profit_earned = Math.round(SIP - ((var1 * 4) * ((var2 / 12) * 12)));
             }
             if (invst_type.value == 'quat') {
                 SIP = ((var1 / 4) * (((1 + ((var3 / 100) / 12)) ** ((var2 / 12) * 12)) - 1) * (1 + ((var3 / 100) / 12))) / ((var3 / 100) / 12);
-                result.expected_amount = Math.round(SIP);
-                result.amount_invested = Math.round((var1 / 4) * ((var2 / 12) * 12));
-                result.profit_earned = Math.round(SIP - ((var1 / 4) * ((var2 / 12) * 12)));
+                proj_result.expected_amount = Math.round(SIP);
+                proj_result.amount_invested = Math.round((var1 / 4) * ((var2 / 12) * 12));
+                proj_result.profit_earned = Math.round(SIP - ((var1 / 4) * ((var2 / 12) * 12)));
 
             }
         }
@@ -171,21 +171,21 @@ function calculateProjectedData(var_year) {
             if (invst_type.value == 'mon') {
 
                 SIP = (var1 * (((1 + ((var3 / 100) / 12)) ** (var2 * 12)) - 1) * (1 + ((var3 / 100) / 12))) / ((var3 / 100) / 12);
-                result.expected_amount = Math.round(SIP);
-                result.amount_invested = Math.round(var1 * var2 * 12);
-                result.profit_earned = Math.round(SIP - (var1 * var2 * 12));
+                proj_result.expected_amount = Math.round(SIP);
+                proj_result.amount_invested = Math.round(var1 * var2 * 12);
+                proj_result.profit_earned = Math.round(SIP - (var1 * var2 * 12));
             }
             if (invst_type.value == 'week') {
                 SIP = ((var1 * 4) * (((1 + ((var3 / 100) / 12)) ** (var2 * 12)) - 1) * (1 + ((var3 / 100) / 12))) / ((var3 / 100) / 12);
-                result.expected_amount = Math.round(SIP);
-                result.amount_invested = Math.round((var1 * 4) * (var2 * 12));
-                result.profit_earned = Math.round(SIP - ((var1 * 4) * (var2 * 12)));
+                proj_result.expected_amount = Math.round(SIP);
+                proj_result.amount_invested = Math.round((var1 * 4) * (var2 * 12));
+                proj_result.profit_earned = Math.round(SIP - ((var1 * 4) * (var2 * 12)));
             }
             if (invst_type.value == 'quat') {
                 SIP = ((var1 / 4) * (((1 + ((var3 / 100) / 12)) ** (var2 * 12)) - 1) * (1 + ((var3 / 100) / 12))) / ((var3 / 100) / 12);
-                result.expected_amount = Math.round(SIP);
-                result.amount_invested = Math.round((var1 / 4) * (var2 * 12));
-                result.profit_earned = Math.round(SIP - ((var1 / 4) * (var2 * 12)));
+                proj_result.expected_amount = Math.round(SIP);
+                proj_result.amount_invested = Math.round((var1 / 4) * (var2 * 12));
+                proj_result.profit_earned = Math.round(SIP - ((var1 / 4) * (var2 * 12)));
 
             }
         }
@@ -193,21 +193,21 @@ function calculateProjectedData(var_year) {
             if (invst_type.value == 'mon') {
 
                 SIP = (var1 * (((1 + ((var3 / 100) / 12)) ** ((var2 / 12) * 12)) - 1) * (1 + ((var3 / 100) / 12))) / ((var3 / 100) / 12);
-                result.expected_amount = Math.round(SIP);
-                result.amount_invested = Math.round(var1 * (var2 / 12) * 12);
-                result.profit_earned = Math.round(SIP - (var1 * (var2 / 12) * 12));
+                proj_result.expected_amount = Math.round(SIP);
+                proj_result.amount_invested = Math.round(var1 * (var2 / 12) * 12);
+                proj_result.profit_earned = Math.round(SIP - (var1 * (var2 / 12) * 12));
             }
             if (invst_type.value == 'week') {
                 SIP = ((var1 * 4) * (((1 + ((var3 / 100) / 12)) ** ((var2 / 12) * 12)) - 1) * (1 + ((var3 / 100) / 12))) / ((var3 / 100) / 12);
-                result.expected_amount = Math.round(SIP);
-                result.amount_invested = Math.round((var1 * 4) * ((var2 / 12) * 12));
-                result.profit_earned = Math.round(SIP - ((var1 * 4) * ((var2 / 12) * 12)));
+                proj_result.expected_amount = Math.round(SIP);
+                proj_result.amount_invested = Math.round((var1 * 4) * ((var2 / 12) * 12));
+                proj_result.profit_earned = Math.round(SIP - ((var1 * 4) * ((var2 / 12) * 12)));
             }
             if (invst_type.value == 'quat') {
                 SIP = ((var1 / 4) * (((1 + ((var3 / 100) / 12)) ** ((var2 / 12) * 12)) - 1) * (1 + ((var3 / 100) / 12))) / ((var3 / 100) / 12);
-                result.expected_amount = Math.round(SIP);
-                result.amount_invested = Math.round((var1 / 4) * ((var2 / 12) * 12));
-                result.profit_earned = Math.round(SIP - ((var1 / 4) * ((var2 / 12) * 12)));
+                proj_result.expected_amount = Math.round(SIP);
+                proj_result.amount_invested = Math.round((var1 / 4) * ((var2 / 12) * 12));
+                proj_result.profit_earned = Math.round(SIP - ((var1 / 4) * ((var2 / 12) * 12)));
 
             }
         }

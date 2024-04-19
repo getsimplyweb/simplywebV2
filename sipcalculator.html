@@ -313,35 +313,19 @@
   function createGraph() {
     var ctx = document.getElementById('myChart').getContext('2d');
     var stackedBar = new Chart(ctx, {
-      type: 'bar',
+      type: 'pie',
       data: {
-        labels: ['Amount in Rs'],
+        labels: ['Invested Amount', 'Profit Earned'],
         datasets: [{
-          label: 'Invested Amount',
-          data: [result.amount_invested],
-          backgroundColor: '#F2AF29',
-        },
-        {
-          label: 'Profit Earned',
-          data: [result.profit_earned],
-          backgroundColor: '#45CB85',
+          label: 'Chart',
+          data: [result.amount_invested, result.profit_earned],
+          backgroundColor: ['#F2AF29', '#45CB85']
         }
         ]
-      },
-      options: {
-        scales: {
-          xAxes: [{
-            stacked: true
-          }],
-          yAxes: [{
-            stacked: true
-          }]
-        }
       }
     });
-
   }
-
+  
   function createTable() {
     var var_year = Number(invstperiod.value);
     var table_dynamic = ``;

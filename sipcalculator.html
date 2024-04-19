@@ -350,7 +350,7 @@
   function loadResult() {
     result = calculateSIP();
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|OperaMini/i.test(navigator.userAgent)) {
-    window.scrollBy(0, 350);
+    window.scrollBy(0, 400);
     }
     rf1.innerText = "₹ " + result.expected_amount.toLocaleString('en-IN');
     rf2.innerText = "₹ " + result.amount_invested.toLocaleString('en-IN');

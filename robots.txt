@@ -1,4 +1,7 @@
 User-Agent: *
-Disallow: /assets
+Disallow: /assets/css
+Disallow: /assets/js
+Disallow: /assets/scss
+Disallow: /assets/vendor
 
 Sitemap: https://simplyweb.in/sitemap.xml

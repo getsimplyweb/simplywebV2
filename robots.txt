@@ -1,3 +1,4 @@
 User-Agent: *
-Allow: /
+Disallow: /assets
+
 Sitemap: https://simplyweb.in/sitemap.xml

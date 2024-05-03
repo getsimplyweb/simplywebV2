@@ -145,11 +145,48 @@ document.addEventListener('DOMContentLoaded', () => {
    * Clients Slider
    */
   new Swiper('.clients-slider', {
-    speed: 400,
+    speed: 1000,
     loop: true,
     autoplay: {
-      delay: 5000,
+      delay: 0,
       disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 40
+      },
+      480: {
+        slidesPerView: 3,
+        spaceBetween: 60
+      },
+      640: {
+        slidesPerView: 4,
+        spaceBetween: 80
+      },
+      992: {
+        slidesPerView: 6,
+        spaceBetween: 120
+      }
+    }
+  });
+
+   /**
+   * Clients Slider 2
+   */
+   new Swiper('.clients-slider2', {
+    speed: 1000,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+      reverseDirecton: true
     },
     slidesPerView: 'auto',
     pagination: {

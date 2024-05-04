@@ -3,7 +3,7 @@ body{
 }
 
 .header {
-  background: #008374;
+  background: #000000;
   padding: 10px; 
   width: auto;
   height: auto; 
@@ -70,7 +70,7 @@ a {
   width: 25px;
   height: 25px;
   border-radius: 50%; 
-  background: #008374;
+  background: #000000;
   cursor: pointer;
 }
 
@@ -78,7 +78,7 @@ a {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #008374;
+  background: #000000;
   cursor: pointer;
 }
 
@@ -104,7 +104,7 @@ input[type="number"] {
 }
 
 .button {
-  background-color: #008374; /* Green */
+  background-color: #000000; /* Green */
   border: none;
   color: white;
   padding: 16px 32px;
@@ -122,15 +122,15 @@ input[type="number"] {
 .button1 {
   background-color: white; 
   color: black; 
-  border: 2px solid #008374;
+  border: 2px solid #000000;
 }
 
 .button1:hover {
-  background-color: #008374;
+  background-color: #000000;
   color: white;
 }
 
 .footer-copyright {
-	background: #008374;
+	background: #000000;
 	color: #fff;
 }

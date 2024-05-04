@@ -65,7 +65,7 @@ a {
 }
 
 .navbar {
-	background-color: #008374;
+	background-color: #000000;
 }
 
 .whitefont {
@@ -73,7 +73,7 @@ a {
 }
 
 .button {
-	background-color: #008374;
+	background-color: #000000;
 	/* Green */
 	border: none;
 	color: white;
@@ -92,11 +92,11 @@ a {
 .button1 {
 	background-color: white;
 	color: black;
-	border: 2px solid #008374;
+	border: 2px solid #000000;
 }
 
 .button1:hover {
-	background-color: #008374;
+	background-color: #000000;
 	color: white;
 }
 
@@ -109,7 +109,7 @@ a {
 	right: 0%;
 	opacity: 100%;
 	z-index: -1;
-	background-color: #008374;
+	background-color: #000000;
 }
 
 .nav-item a {
@@ -127,7 +127,7 @@ a {
 }
 
 .caption-cont {
-	color: #008374;
+	color: #000000;
 	text-align: center;
 
 }
@@ -198,7 +198,7 @@ label {
 }
 
 .footer-copyright {
-	background: #008374;
+	background: #000000;
 	color: #fff;
 }
 

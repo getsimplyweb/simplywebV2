@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const preloader = document.querySelector('#preloader');
   if (preloader) {
-    window.addEventListener('load', SimplyWeb. => {
+    window.addEventListener('load', () => {
       preloader.remove();
     });
   }

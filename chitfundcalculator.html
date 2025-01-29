@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chit Fund Return Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+        }
+        td, th {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .positive { color: green; font-weight: bold; }
+        .negative { color: red; font-weight: bold; }
+        #summary {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        canvas {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Chit Fund Return Calculator</h2>
+        <input type="number" id="chitAmount" value="500000" placeholder="Chit Amount (₹)">
+        <input type="number" id="members" value="20" placeholder="Members">
+        <input type="number" id="commission" value="3" placeholder="Commission (%)">
+        <button onclick="calculateChit()">Calculate</button>
+    </div>
+
+    <div class="table-container">
+        <table id="resultTable">
+            <thead>
+                <tr>
+                    <th>SL.No</th>
+                    <th>Month</th>
+                    <th>Taken Amount (₹)</th>
+                    <th>Commission (₹)</th>
+                    <th>Given Amount (₹)</th>
+                    <th>Person Taken (₹)</th>
+                    <th>Person Given (₹)</th>
+                    <th>Interest (₹)</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <div id="summary"></div>
+
+    <canvas id="chitChart"></canvas>
+
+    <script>
+        function calculateChit() {
+            let chitAmount = parseFloat(document.getElementById("chitAmount").value);
+            let members = parseInt(document.getElementById("members").value);
+            let commissionRate = parseFloat(document.getElementById("commission").value);
+
+            if (isNaN(chitAmount) || isNaN(members) || isNaN(commissionRate) || chitAmount <= 0 || members <= 0 || commissionRate < 0) {
+                alert("Please enter valid inputs.");
+                return;
+            }
+
+            let tableBody = document.getElementById("tableBody");
+            tableBody.innerHTML = ""; // Clear previous results
+
+            let months = [];
+            let takenAmounts = [];
+            let givenAmounts = [];
+            let interestAmounts = [];
+            let totalInterest = 0;
+            let totalGivenAmount = 0;
+
+            for (let month = 1; month <= members; month++) {
+                let takenAmount = chitAmount + (month - 1) * 5000;
+                let commissionAmount = (takenAmount * commissionRate) / 100;
+                let givenAmount = takenAmount - commissionAmount;
+                let personTaken = 460000 + (month - 1) * 5000;
+                let personGiven = 570000 - (month - 1) * 5000;
+                let interestAmount = personGiven - personTaken;
+
+                totalInterest += interestAmount;
+                totalGivenAmount += givenAmount;
+
+                months.push(`${month}`);
+                takenAmounts.push(takenAmount);
+                givenAmounts.push(givenAmount);
+                interestAmounts.push(interestAmount);
+
+                let interestClass = interestAmount >= 0 ? "positive" : "negative";
+
+                let row = `<tr>
+                    <td>${month}</td>
+                    <td>${month} Month</td>
+                    <td>${takenAmount.toFixed(2)}</td>
+                    <td>${commissionAmount.toFixed(2)}</td>
+                    <td>${givenAmount.toFixed(2)}</td>
+                    <td>${personTaken.toFixed(2)}</td>
+                    <td>${personGiven.toFixed(2)}</td>
+                    <td class="${interestClass}">${interestAmount.toFixed(2)}</td>
+                </tr>`;
+
+                tableBody.innerHTML += row;
+            }
+
+            document.getElementById("summary").innerHTML = `
+                <p>Total Interest Earned: <strong>₹${totalInterest.toFixed(2)}</strong></p>
+                <p>Total Given Amount: <strong>₹${totalGivenAmount.toFixed(2)}</strong></p>
+                <p>Final Payout Per Person: <strong>₹${(totalGivenAmount / members).toFixed(2)}</strong></p>
+            `;
+
+            drawChart(months, takenAmounts, givenAmounts, interestAmounts);
+        }
+
+        function drawChart(months, taken, given, interest) {
+            let ctx = document.getElementById("chitChart").getContext("2d");
+
+            if (window.myChart) window.myChart.destroy(); // Destroy previous chart
+
+            window.myChart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: months,
+                    datasets: [
+                        {
+                            label: "Taken Amount",
+                            data: taken,
+                            borderColor: "blue",
+                            fill: false
+                        },
+                        {
+                            label: "Given Amount",
+                            data: given,
+                            borderColor: "green",
+                            fill: false
+                        },
+                        {
+                            label: "Interest Amount",
+                            data: interest,
+                            borderColor: "red",
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: "top"
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

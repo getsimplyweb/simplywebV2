@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chit Fund Return Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table, th, td { border: 1px solid black; text-align: center; padding: 8px; }
+        th { background-color: #f2f2f2; }
+        input, button { margin: 5px; padding: 8px; }
+    </style>
+</head>
+<body>
+
+    <h2>Chit Fund Return Calculator</h2>
+    <label for="chitAmount">Chit Amount (₹):</label>
+    <input type="number" id="chitAmount" value="500000">
+    
+    <label for="members">Members:</label>
+    <input type="number" id="members" value="20">
+    
+    <label for="commission">Commission (%):</label>
+    <input type="number" id="commission" value="3">
+    
+    <button onclick="calculateChit()">Calculate</button>
+    
+    <h3>Month-wise Chit Calculation</h3>
+    <table id="resultTable">
+        <thead>
+            <tr>
+                <th>SL.No</th>
+                <th>Month</th>
+                <th>Taken Amount (₹)</th>
+                <th>Commission Amount (₹)</th>
+                <th>Given Amount (₹)</th>
+                <th>Person Taken (₹)</th>
+                <th>Person Given (₹)</th>
+                <th>Interest Amount (₹)</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <script>
+        function calculateChit() {
+            let chitAmount = parseFloat(document.getElementById("chitAmount").value);
+            let members = parseInt(document.getElementById("members").value);
+            let commissionRate = parseFloat(document.getElementById("commission").value);
+
+            if (isNaN(chitAmount) || isNaN(members) || isNaN(commissionRate) || chitAmount <= 0 || members <= 0 || commissionRate < 0) {
+                alert("Please enter valid inputs.");
+                return;
+            }
+
+            let monthlyInstallment = chitAmount / members;
+            let tableBody = document.getElementById("tableBody");
+            tableBody.innerHTML = ""; // Clear previous results
+
+            for (let month = 1; month <= members; month++) {
+                let takenAmount = chitAmount + (month - 1) * 5000; // Increment by ₹5000 each month
+                let commissionAmount = (takenAmount * commissionRate) / 100;
+                let givenAmount = takenAmount - commissionAmount;
+                let personTaken = 460000 + (month - 1) * 5000; // Increasing by ₹5000
+                let personGiven = 570000 - (month - 1) * 5000; // Decreasing by ₹5000
+                let interestAmount = personGiven - personTaken;
+
+                let row = `<tr>
+                    <td>${month}</td>
+                    <td>${month} Month</td>
+                    <td>${takenAmount.toFixed(2)}</td>
+                    <td>${commissionAmount.toFixed(2)}</td>
+                    <td>${givenAmount.toFixed(2)}</td>
+                    <td>${personTaken.toFixed(2)}</td>
+                    <td>${personGiven.toFixed(2)}</td>
+                    <td>${interestAmount.toFixed(2)}</td>
+                </tr>`;
+
+                tableBody.innerHTML += row;
+            }
+        }
+    </script>
+
+</body>
+</html>

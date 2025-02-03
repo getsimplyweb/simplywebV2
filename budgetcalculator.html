@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income & Expense Tracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; text-align: center; }
+        .container { max-width: 400px; margin: auto; }
+        input, select, button { margin: 5px; padding: 8px; width: 100%; }
+        table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Income & Expense Tracker</h2>
+        <input type="text" id="desc" placeholder="Description">
+        <input type="number" id="amount" placeholder="Amount">
+        <select id="type">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+        </select>
+        <button onclick="addTransaction()">Add Transaction</button>
+        <h3>Monthly Summary</h3>
+        <p>Income: <span id="monthlyIncome">0</span></p>
+        <p>Expenses: <span id="monthlyExpense">0</span></p>
+        <p>Balance: <span id="monthlyBalance">0</span></p>
+        <h3>Yearly Summary</h3>
+        <p>Yearly Income: <span id="yearlyIncome">0</span></p>
+        <p>Yearly Expenses: <span id="yearlyExpense">0</span></p>
+        <p>Yearly Balance: <span id="yearlyBalance">0</span></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody id="transactions"></tbody>
+        </table>
+    </div>
+    <script>
+        let transactions = [];
+        function addTransaction() {
+            const desc = document.getElementById('desc').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            const type = document.getElementById('type').value;
+            if (!desc || isNaN(amount) || amount <= 0) return;
+            transactions.push({ desc, amount, type });
+            updateUI();
+        }
+        function updateUI() {
+            let monthlyIncome = 0, monthlyExpense = 0;
+            let yearlyIncome = 0, yearlyExpense = 0;
+            let tbody = document.getElementById('transactions');
+            tbody.innerHTML = '';
+            transactions.forEach(({ desc, amount, type }) => {
+                let row = `<tr><td>${desc}</td><td>${amount}</td><td>${type}</td></tr>`;
+                tbody.innerHTML += row;
+                if (type === 'income') {
+                    monthlyIncome += amount;
+                    yearlyIncome += amount;
+                } else {
+                    monthlyExpense += amount;
+                    yearlyExpense += amount;
+                }
+            });
+            document.getElementById('monthlyIncome').innerText = monthlyIncome;
+            document.getElementById('monthlyExpense').innerText = monthlyExpense;
+            document.getElementById('monthlyBalance').innerText = monthlyIncome - monthlyExpense;
+            document.getElementById('yearlyIncome').innerText = yearlyIncome;
+            document.getElementById('yearlyExpense').innerText = yearlyExpense;
+            document.getElementById('yearlyBalance').innerText = yearlyIncome - yearlyExpense;
+        }
+    </script>
+</body>
+</html>

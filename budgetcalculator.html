@@ -15,6 +15,7 @@
         table { width: 45%; border-collapse: collapse; }
         th, td { border: 1px solid #ddd; padding: 8px; }
         th { background-color: #f4f4f4; }
+        .summary { margin-top: 20px; font-size: 18px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -46,8 +47,14 @@
                 </table>
             </div>
         </div>
+        <div class="summary">
+            <p>Total Income: <span id="totalIncome">0</span></p>
+            <p>Total Expenses: <span id="totalExpense">0</span></p>
+            <p>Balance: <span id="balance">0</span></p>
+        </div>
     </div>
     <script>
+        let totalIncome = 0, totalExpense = 0;
         function addTransaction(type) {
             const desc = document.getElementById('desc').value;
             const amount = parseFloat(document.getElementById('amount').value);
@@ -55,8 +62,19 @@
             let table = type === 'income' ? document.getElementById('incomeTable') : document.getElementById('expenseTable');
             let row = `<tr><td>${desc}</td><td>${amount}</td></tr>`;
             table.innerHTML += row;
+            if (type === 'income') {
+                totalIncome += amount;
+            } else {
+                totalExpense += amount;
+            }
+            updateSummary();
             document.getElementById('desc').value = '';
             document.getElementById('amount').value = '';
+        }
+        function updateSummary() {
+            document.getElementById('totalIncome').innerText = totalIncome;
+            document.getElementById('totalExpense').innerText = totalExpense;
+            document.getElementById('balance').innerText = totalIncome - totalExpense;
         }
     </script>
 </body>

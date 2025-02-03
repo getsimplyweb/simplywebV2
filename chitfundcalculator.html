@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chit Fund Return Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .input-group {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+        }
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[readonly] {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+        button {
+            width: 95%;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+        }
+        td, th {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .positive { color: green; font-weight: bold; }
+        .negative { color: red; font-weight: bold; }
+        #summary {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        canvas {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Chit Fund Return Calculator</h2>
+        
+        <div class="input-group">
+            <label for="chitAmount">Chit Amount (₹)</label>
+            <input type="number" id="chitAmount" value="500000" oninput="deriveValues()">
+        </div>
+        
+        <div class="input-group">
+            <label for="members">Members</label>
+            <input type="number" id="members" value="20" oninput="deriveValues()">
+        </div>
+        
+        <div class="input-group">
+            <label for="months">Months</label>
+            <input type="number" id="months" value="20" readonly>
+        </div>
+        
+        <div class="input-group">
+            <label for="installments">Installment (₹)</label>
+            <input type="number" id="installments" value="25000" readonly>
+        </div>
+
+        <div class="input-group">
+            <label for="commission">Commission (%)</label>
+            <input type="number" id="commission" value="3">
+        </div>
+
+        <button onclick="calculateChit()">Calculate</button>
+    </div>
+
+    <div class="table-container">
+        <table id="resultTable">
+            <thead>
+                <tr>
+                    <th>SL.No</th>
+                    <th>Month</th>
+                    <th>Taken Amount (₹)</th>
+                    <th>Commission (₹)</th>
+                    <th>Given Amount (₹)</th>
+                    <th>Person Taken (₹)</th>
+                    <th>Person Given (₹)</th>
+                    <th>Interest (₹)</th>
+                    <th>Annual Interest Paid (₹)</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <div id="summary"></div>
+
+    <canvas id="chitChart"></canvas>
+
+    <script>
+        function deriveValues() {
+            let chitAmount = parseFloat(document.getElementById("chitAmount").value);
+            let members = parseInt(document.getElementById("members").value);
+            let installments = chitAmount / members;
+            let months = members;
+
+            document.getElementById("months").value = isNaN(months) ? '' : months;
+            document.getElementById("installments").value = isNaN(installments) ? '' : installments.toFixed(2);
+        }
+
+        function calculateChit() {
+            let chitAmount = parseFloat(document.getElementById("chitAmount").value);
+            let members = parseInt(document.getElementById("members").value);
+            let commissionRate = parseFloat(document.getElementById("commission").value);
+
+            if (isNaN(chitAmount) || isNaN(members) || isNaN(commissionRate) || chitAmount <= 0 || members <= 0 || commissionRate < 0) {
+                alert("Please enter valid inputs.");
+                return;
+            }
+
+            let tableBody = document.getElementById("tableBody");
+            tableBody.innerHTML = "";
+
+            let months = [];
+            let takenAmounts = [];
+            let givenAmounts = [];
+            let interestAmounts = [];
+            let annualInterestAmounts = [];
+            let totalInterest = 0;
+            let totalGivenAmount = 0;
+
+            for (let month = 1; month <= members; month++) {
+                let takenAmount = chitAmount + (month - 1) * 5000;
+                let commissionAmount = (takenAmount * commissionRate) / 100;
+                let givenAmount = takenAmount - commissionAmount;
+                let personTaken = 460000 + (month - 1) * 5000;
+                let personGiven = 570000 - (month - 1) * 5000;
+                let interestAmount = personGiven - personTaken;
+                let annualInterestPaid = interestAmount * 12; // New calculation
+
+                totalInterest += interestAmount;
+                totalGivenAmount += givenAmount;
+
+                months.push(`${month}`);
+                takenAmounts.push(takenAmount);
+                givenAmounts.push(givenAmount);
+                interestAmounts.push(interestAmount);
+                annualInterestAmounts.push(annualInterestPaid);
+
+                let interestClass = interestAmount >= 0 ? "positive" : "negative";
+
+                let row = `<tr>
+                    <td>${month}</td>
+                    <td>${month} Month</td>
+                    <td>${takenAmount.toFixed(2)}</td>
+                    <td>${commissionAmount.toFixed(2)}</td>
+                    <td>${givenAmount.toFixed(2)}</td>
+                    <td>${personTaken.toFixed(2)}</td>
+                    <td>${personGiven.toFixed(2)}</td>
+                    <td class="${interestClass}">${interestAmount.toFixed(2)}</td>
+                    <td>${annualInterestPaid.toFixed(2)}</td>
+                </tr>`;
+
+                tableBody.innerHTML += row;
+            }
+
+            document.getElementById("summary").innerHTML = `
+                <p>Total Interest Earned: <strong>₹${totalInterest.toFixed(2)}</strong></p>
+                <p>Total Given Amount: <strong>₹${totalGivenAmount.toFixed(2)}</strong></p>
+            `;
+        }
+    </script>
+
+</body>
+</html>

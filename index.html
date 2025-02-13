@@ -81,111 +81,62 @@
 
   <main id="main">
     <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
-      <div class="container" data-aos="">
-
-        <div class="clients-slider swiper">
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/portfolio/resume-1.webp" class="img-fluid clientsswipe"
-                alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/blogy.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/klar.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/furni.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/material-kit.webp" class="img-fluid clientsswipe"
-                alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/stride.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/resume-1.webp" class="img-fluid clientsswipe"
-                alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/blogy.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/klar.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/furni.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/material-kit.webp" class="img-fluid clientsswipe"
-                alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/stride.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-          </div>
-        </div>
-
+<section id="clients" class="clients">
+  <div class="container" data-aos>
+    <div class="clients-slider swiper">
+      <div class="swiper-wrapper align-items-center">
+        <!-- Dynamic Image Slides -->
+        <script>
+          const images1 = [
+            "resume-1.webp", "blogy.webp", "klar.webp", "furni.webp", "material-kit.webp", "stride.webp"
+          ];
+          const swiperWrapper1 = document.currentScript.parentElement;
+          images1.concat(images1).forEach(img => {
+            swiperWrapper1.innerHTML += `<div class="swiper-slide"><img src="assets/img/portfolio/${img}" class="img-fluid clientsswipe" alt=""></div>`;
+          });
+        </script>
       </div>
-    </section><!-- End Clients Section -->
+    </div>
+  </div>
+</section><!-- End Clients Section -->
 
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
-      <div class="container" data-aos="">
-
-        <div class="clients-slider2 swiper" dir="rtl">
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/portfolio/furni.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/coming-soon.webp" class="img-fluid clientsswipe"
-                alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/material-kit.webp" class="img-fluid clientsswipe"
-                alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/stride.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-             <div class="swiper-slide"><img src="assets/img/portfolio/klar.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/painto.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/furni.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/coming-soon.webp" class="img-fluid clientsswipe"
-                alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/material-kit.webp" class="img-fluid clientsswipe"
-                alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/stride.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-             <div class="swiper-slide"><img src="assets/img/portfolio/klar.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/painto.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-          </div>
-        </div>
+<!-- ======= Clients Section (RTL) ======= -->
+<section id="clients" class="clients">
+  <div class="container" data-aos>
+    <div class="clients-slider2 swiper" dir="rtl">
+      <div class="swiper-wrapper align-items-center">
+        <script>
+          const images2 = [
+            "furni.webp", "coming-soon.webp", "material-kit.webp", "stride.webp", "klar.webp", "painto.webp"
+          ];
+          const swiperWrapper2 = document.currentScript.parentElement;
+          images2.concat(images2).forEach(img => {
+            swiperWrapper2.innerHTML += `<div class="swiper-slide"><img src="assets/img/portfolio/${img}" class="img-fluid clientsswipe" alt=""></div>`;
+          });
+        </script>
       </div>
-    </section><!-- End Clients Section -->
+    </div>
+  </div>
+</section><!-- End Clients Section -->
 
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
-      <div class="container" data-aos="">
-
-        <div class="clients-slider3 swiper">
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/portfolio/furni.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/blogy.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/painto.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/material-kit.webp" class="img-fluid clientsswipe"
-                alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/coming-soon.webp" class="img-fluid clientsswipe"
-                alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/stride.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/furni.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/blogy.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/painto.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/material-kit.webp" class="img-fluid clientsswipe"
-                alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/coming-soon.webp" class="img-fluid clientsswipe"
-                alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/portfolio/stride.webp" class="img-fluid clientsswipe" alt="">
-            </div>
-          </div>
-        </div>
-
+<!-- ======= Clients Section ======= -->
+<section id="clients" class="clients">
+  <div class="container" data-aos>
+    <div class="clients-slider3 swiper">
+      <div class="swiper-wrapper align-items-center">
+        <script>
+          const images3 = [
+            "furni.webp", "blogy.webp", "painto.webp", "material-kit.webp", "coming-soon.webp", "stride.webp"
+          ];
+          const swiperWrapper3 = document.currentScript.parentElement;
+          images3.concat(images3).forEach(img => {
+            swiperWrapper3.innerHTML += `<div class="swiper-slide"><img src="assets/img/portfolio/${img}" class="img-fluid clientsswipe" alt=""></div>`;
+          });
+        </script>
       </div>
-    </section><!-- End Clients Section -->
+    </div>
+  </div>
+</section><!-- End Clients Section -->
 
 
     <!-- ======= Hero Section ======= -->

@@ -107,35 +107,43 @@
       <!-- End Header -->
     
     <div class="container">
-        <h2>Chit Fund Return Calculator</h2>
-        
-        <div class="input-group">
-            <label for="chitAmount">Chit Amount (₹)</label>
-            <input type="number" id="chitAmount" value="500000" oninput="deriveValues()">
+    <h2 class="text-center my-4">Chit Fund Return Calculator</h2>
+    
+    <form>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="chitAmount" class="form-label">Chit Amount (₹)</label>
+                <input type="number" class="form-control" id="chitAmount" value="500000" oninput="deriveValues()">
+            </div>
+            <div class="col-md-6">
+                <label for="members" class="form-label">Members</label>
+                <input type="number" class="form-control" id="members" value="20" oninput="deriveValues()">
+            </div>
         </div>
         
-        <div class="input-group">
-            <label for="members">Members</label>
-            <input type="number" id="members" value="20" oninput="deriveValues()">
-        </div>
-        
-        <div class="input-group">
-            <label for="months">Months</label>
-            <input type="number" id="months" value="20" readonly>
-        </div>
-        
-        <div class="input-group">
-            <label for="installments">Installment (₹)</label>
-            <input type="number" id="installments" value="25000" readonly>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="months" class="form-label">Months</label>
+                <input type="number" class="form-control" id="months" value="20" readonly>
+            </div>
+            <div class="col-md-6">
+                <label for="installments" class="form-label">Installment (₹)</label>
+                <input type="number" class="form-control" id="installments" value="25000" readonly>
+            </div>
         </div>
 
-        <div class="input-group">
-            <label for="commission">Commission (%)</label>
-            <input type="number" id="commission" value="3">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="commission" class="form-label">Commission (%)</label>
+                <input type="number" class="form-control" id="commission" value="3">
+            </div>
         </div>
 
-        <button onclick="calculateChit()">Calculate</button>
-    </div>
+        <div class="d-grid gap-2">
+            <button type="button" class="btn btn-primary" onclick="calculateChit()">Calculate</button>
+        </div>
+    </form>
+</div>
 
     <div class="table-container">
         <table id="resultTable">

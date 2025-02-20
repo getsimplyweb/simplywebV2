@@ -654,7 +654,32 @@
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
 
-  <div id="preloader"></div>
+  <div id="preloader">
+        <div class="preloader-content">
+          <h1 id="preloader-text" class="font-primary"></h1>
+        </div>
+  </div>
+
+  <script>
+    // Function to display text one letter at a time
+    function typeWriter(text, elementId, delay = 100) {
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          document.getElementById(elementId).innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, delay);
+        }
+      }
+      type();
+    }
+
+    // Start the typewriter effect on page load
+    window.addEventListener('load', function() {
+      typeWriter('Simply Web.', 'preloader-text');
+      document.getElementById('preloader').style.display = 'none';
+    });
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

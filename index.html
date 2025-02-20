@@ -661,11 +661,11 @@
 
   <script>
     // Function to display text one letter at a time
-    function typeWriter(text, elementId, delay = 100) {
+    function typeWriter(text, delay = 100) {
       let i = 0;
       function type() {
         if (i < text.length) {
-          document.getElementById(elementId).innerHTML += text.charAt(i);
+          document.getElementById('preloader-text').innerHTML += text.charAt(i);
           i++;
           setTimeout(type, delay);
         }
@@ -675,7 +675,7 @@
 
     // Start the typewriter effect on page load
     window.addEventListener('load', function() {
-      typeWriter('Simply Web.', 'preloader-text');
+      typeWriter('Simply Web.');
       // Hide the preloader after 1 minute (60000 milliseconds)
       setTimeout(function() {
         document.getElementById('preloader').style.display = 'none';

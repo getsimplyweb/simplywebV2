@@ -676,7 +676,10 @@
     // Start the typewriter effect on page load
     window.addEventListener('load', function() {
       typeWriter('Simply Web.', 'preloader-text');
-      document.getElementById('preloader').style.display = 'none';
+      // Hide the preloader after 1 minute (60000 milliseconds)
+      setTimeout(function() {
+        document.getElementById('preloader').style.display = 'none';
+      }, 60000);
     });
   </script>
 

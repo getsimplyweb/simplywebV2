@@ -123,52 +123,39 @@ section {
   bottom: 15px;
 }
 
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  overflow: hidden;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.6s ease-out;
-}
+ /*--------------------------------------------------------------
+    # Preloader
+    --------------------------------------------------------------*/
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.6s ease-out;
+    }
 
-.preloader-content {
-  text-align: center;
-}
+    .preloader-content {
+      text-align: center;
+    }
 
-#preloader h1 {
-  font-family: var(--font-primary);
-  font-size: 2rem;
-  color: var(--color-primary);
-  animation: animate-preloader-text 1.5s linear infinite;
-}
+    #preloader h1 {
+      font-family: var(--font-primary);
+      font-size: 2rem;
+      color: var(--color-primary);
+    }
 
-@keyframes animate-preloader-text {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/*--------------------------------------------------------------
-# Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
-@media screen and (max-width: 768px) {
-  [data-aos-delay] {
-    transition-delay: 0 !important;
-  }
-}
+    /*--------------------------------------------------------------
+    # Disable aos animation delay on mobile devices
+    --------------------------------------------------------------*/
+    @media screen and (max-width: 768px) {
+      [data-aos-delay] {
+        transition-delay: 0 !important;
+      }
+    }
 
 /*--------------------------------------------------------------
 # Header

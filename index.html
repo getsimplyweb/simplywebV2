@@ -143,8 +143,8 @@
     <section id="hero" class="hero">
      <div class="container position-relative">
        <div id="preloader">
-          <div class="preloader-content">
-            <h1 class="font-primary">Simply Web</h1>
+        <div class="preloader-content">
+            <h1 id="preloader-text" class="font-primary"></h1>
           </div>
         </div>
         <div class="row gy-5" data-aos="fade-in">
@@ -674,7 +674,7 @@
     }
 
     // Start the typewriter effect on page load
-    window.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('load', function() {
       typeWriter('Simply Web.', 'preloader-text');
       // Hide the preloader after 1 minute (60000 milliseconds)
       setTimeout(function() {

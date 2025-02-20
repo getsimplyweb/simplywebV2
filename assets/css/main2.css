@@ -132,29 +132,32 @@ section {
   z-index: 999999;
   overflow: hidden;
   background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: all 0.6s ease-out;
 }
 
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #fff;
-  border-color: var(--color-primary) transparent var(--color-primary) transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
+.preloader-content {
+  text-align: center;
 }
 
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
+#preloader h1 {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  color: var(--color-primary);
+  animation: animate-preloader-text 1.5s linear infinite;
+}
 
+@keyframes animate-preloader-text {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
   100% {
-    transform: rotate(360deg);
+    opacity: 1;
   }
 }
 

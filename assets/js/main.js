@@ -4,12 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Preloader
    */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
+
+    // Function to display text one letter at a time
+    function typeWriter(text, delay = 100) {
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          document.getElementById('preloader-text').innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, delay);
+        }
+      }
+      type();
+    }
+
+    // Start the typewriter effect on page load
+    window.addEventListener('load', function() {
+      typeWriter('Simply Web.');
+      document.getElementById('preloader').style.display = 'none';      
     });
-  }
+  
 
   /**
    * Sticky Header on Scroll

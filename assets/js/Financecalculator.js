@@ -26,7 +26,7 @@ function calculateSIP() {
     document.getElementById("sipResult").innerText = futureValue.toFixed(2);
 }
 
-// SWP Calculator
+// SWP Calculator (Fixed)
 function calculateSWP() {
     let P = Number(document.getElementById("swpInitial").value);
     let W = Number(document.getElementById("swpWithdraw").value);
@@ -35,6 +35,10 @@ function calculateSWP() {
 
     for (let i = 0; i < n; i++) {
         P = (P * (1 + r)) - W;
+        if (P <= 0) {
+            P = 0;
+            break;
+        }
     }
     document.getElementById("swpResult").innerText = P.toFixed(2);
 }
@@ -49,7 +53,29 @@ function calculateLumpsum() {
     document.getElementById("lumpResult").innerText = futureValue.toFixed(2);
 }
 
-// SIP & SWP Calculator
+// SIP & SWP Calculator (Implemented)
 function calculateSIPSWP() {
-    document.getElementById("sipSwpResult").innerText = "Coming Soon!";
+    let sipAmount = Number(document.getElementById("sipSwpAmount").value);
+    let rate = Number(document.getElementById("sipSwpRate").value) / 100 / 12;
+    let investYears = Number(document.getElementById("sipSwpYears").value);
+    let withdrawAmount = Number(document.getElementById("sipSwpWithdraw").value);
+    let withdrawYears = Number(document.getElementById("sipSwpWithdrawYears").value);
+
+    // Step 1: Calculate SIP Future Value
+    let months = investYears * 12;
+    let sipFutureValue = sipAmount * ((Math.pow(1 + rate, months) - 1) / rate) * (1 + rate);
+
+    // Step 2: Perform SWP on SIP Amount
+    let remainingAmount = sipFutureValue;
+    let withdrawMonths = withdrawYears * 12;
+
+    for (let i = 0; i < withdrawMonths; i++) {
+        remainingAmount = (remainingAmount * (1 + rate)) - withdrawAmount;
+        if (remainingAmount <= 0) {
+            remainingAmount = 0;
+            break;
+        }
+    }
+
+    document.getElementById("sipSwpResult").innerText = remainingAmount.toFixed(2);
 }

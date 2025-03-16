@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Calculators</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Investment Calculators</h1>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'sip-inflation')">SIP Calculator with Inflation</button>
+            <button class="tab-btn" onclick="openTab(event, 'swp')">SWP Calculator</button>
+            <button class="tab-btn" onclick="openTab(event, 'lumpsum')">Lumpsum Calculator</button>
+            <button class="tab-btn" onclick="openTab(event, 'sip-swp')">SIP & SWP Calculator</button>
+        </div>
+
+        <!-- SIP Calculator with Inflation -->
+        <div id="sip-inflation" class="tab-content active">
+            <h2>SIP Calculator with Inflation</h2>
+            <label>Monthly Investment (₹): <input type="number" id="sipAmount"></label>
+            <label>Annual Return Rate (%): <input type="number" id="sipRate"></label>
+            <label>Time Period (Years): <input type="number" id="sipYears"></label>
+            <label>Inflation Rate (%): <input type="number" id="inflationRate"></label>
+            <button onclick="calculateSIP()">Calculate</button>
+            <p>Future Value: ₹<span id="sipResult">0</span></p>
+        </div>
+
+        <!-- SWP Calculator -->
+        <div id="swp" class="tab-content">
+            <h2>SWP Calculator</h2>
+            <label>Initial Investment (₹): <input type="number" id="swpInitial"></label>
+            <label>Withdrawal Amount (₹): <input type="number" id="swpWithdraw"></label>
+            <label>Annual Return Rate (%): <input type="number" id="swpRate"></label>
+            <label>Time Period (Years): <input type="number" id="swpYears"></label>
+            <button onclick="calculateSWP()">Calculate</button>
+            <p>Final Value: ₹<span id="swpResult">0</span></p>
+        </div>
+
+        <!-- Lumpsum Calculator -->
+        <div id="lumpsum" class="tab-content">
+            <h2>Lumpsum Calculator</h2>
+            <label>Initial Investment (₹): <input type="number" id="lumpAmount"></label>
+            <label>Annual Return Rate (%): <input type="number" id="lumpRate"></label>
+            <label>Time Period (Years): <input type="number" id="lumpYears"></label>
+            <button onclick="calculateLumpsum()">Calculate</button>
+            <p>Future Value: ₹<span id="lumpResult">0</span></p>
+        </div>
+
+        <!-- SIP & SWP Calculator -->
+        <div id="sip-swp" class="tab-content">
+            <h2>SIP & SWP Calculator</h2>
+            <label>Monthly SIP (₹): <input type="number" id="sipSwpAmount"></label>
+            <label>Annual Return Rate (%): <input type="number" id="sipSwpRate"></label>
+            <label>Investment Period (Years): <input type="number" id="sipSwpYears"></label>
+            <label>Withdrawal Amount (₹): <input type="number" id="sipSwpWithdraw"></label>
+            <label>Withdrawal Period (Years): <input type="number" id="sipSwpWithdrawYears"></label>
+            <button onclick="calculateSIPSWP()">Calculate</button>
+            <p>Final Value: ₹<span id="sipSwpResult">0</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

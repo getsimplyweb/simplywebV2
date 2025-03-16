@@ -1,12 +1,14 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    margin: 20px;
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4;
 }
 
 .container {
-    width: 50%;
+    width: 90%;
+    max-width: 500px;
     margin: auto;
     background: white;
     padding: 20px;
@@ -14,25 +16,33 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Tabs */
 .tabs {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
 .tab-btn {
-    padding: 10px 20px;
+    flex: 1;
+    min-width: 120px;
+    padding: 10px;
     border: none;
     cursor: pointer;
     background: #007bff;
     color: white;
     border-radius: 5px;
+    margin: 5px;
+    text-align: center;
+    font-size: 14px;
 }
 
 .tab-btn.active {
     background: #0056b3;
 }
 
+/* Tab Content */
 .tab-content {
     display: none;
 }
@@ -41,22 +51,45 @@ body {
     display: block;
 }
 
+/* Inputs */
 input {
     display: block;
+    width: 90%;
+    max-width: 400px;
     margin: 10px auto;
-    padding: 8px;
-    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
+/* Buttons */
 button {
-    padding: 10px;
+    width: 90%;
+    max-width: 400px;
+    padding: 12px;
     background: #28a745;
     color: white;
     border: none;
     cursor: pointer;
     margin-top: 10px;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
 button:hover {
     background: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .tab-btn {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    input, button {
+        font-size: 14px;
+        padding: 8px;
+    }
 }

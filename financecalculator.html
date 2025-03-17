@@ -8,85 +8,60 @@
 </head>
 <body>
 
-    <div class="tabs">
-        <button onclick="openTab('sip')">SIP Calculator</button>
-        <button onclick="openTab('swp')">SWP Calculator</button>
-        <button onclick="openTab('lumpsum')">Lumpsum Calculator</button>
-        <button onclick="openTab('sip-swp')">SIP & SWP Calculator</button>
+    <div class="container">
+        <h1>Investment Calculators</h1>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'sip-inflation')">SIP Calculator with Inflation</button>
+            <button class="tab-btn" onclick="openTab(event, 'swp')">SWP Calculator</button>
+            <button class="tab-btn" onclick="openTab(event, 'lumpsum')">Lumpsum Calculator</button>
+            <button class="tab-btn" onclick="openTab(event, 'sip-swp')">SIP & SWP Calculator</button>
+        </div>
+
+        <!-- SIP Calculator with Inflation -->
+        <div id="sip-inflation" class="tab-content active">
+            <h2>SIP Calculator</h2>
+            <input type="number" id="sipAmount" value="5000" placeholder="Monthly SIP Amount">
+            <input type="number" id="sipRate" value="12" placeholder="Annual Return Rate (%)">
+            <input type="number" id="sipYears" value="10" placeholder="Investment Duration (Years)">
+            <input type="number" id="inflationRate" value="6" placeholder="Inflation Rate (%)">
+            <button onclick="calculateSIP()">Calculate</button>
+            <div id="sipResult"></div>
+        </div>
+
+        <!-- SWP Calculator -->
+        <div id="swp" class="tab-content">
+            <h2>SWP Calculator</h2>
+            <input type="number" id="swpInitial" value="1000000" placeholder="Initial Investment">
+            <input type="number" id="swpWithdraw" value="10000" placeholder="Monthly Withdrawal">
+            <input type="number" id="swpRate" value="10" placeholder="Annual Return Rate (%)">
+            <input type="number" id="swpYears" value="10" placeholder="Withdrawal Period (Years)">
+            <button onclick="calculateSWP()">Calculate</button>
+            <div id="swpResult"></div>
+        </div>
+
+        <!-- Lumpsum Calculator -->
+        <div id="lumpsum" class="tab-content">
+            <h2>Lumpsum Calculator</h2>
+            <input type="number" id="lumpAmount" value="500000" placeholder="Initial Investment">
+            <input type="number" id="lumpRate" value="12" placeholder="Annual Return Rate (%)">
+            <input type="number" id="lumpYears" value="10" placeholder="Investment Duration (Years)">
+            <button onclick="calculateLumpsum()">Calculate</button>
+            <div id="lumpResult"></div>
+        </div>
+
+        <!-- SIP & SWP Calculator -->
+        <div id="sip-swp" class="tab-content">
+            <h2>SIP & SWP Calculator</h2>
+            <input type="number" id="sipSwpAmount" value="5000" placeholder="Monthly SIP Amount">
+            <input type="number" id="sipSwpRate" value="12" placeholder="Annual Return Rate (%)">
+            <input type="number" id="sipSwpYears" value="10" placeholder="Investment Duration (Years)">
+            <input type="number" id="sipSwpWithdraw" value="10000" placeholder="Monthly Withdrawal">
+            <input type="number" id="sipSwpWithdrawYears" value="10" placeholder="Withdrawal Period (Years)">
+            <button onclick="calculateSIPSWP()">Calculate</button>
+            <div id="sipSwpResult"></div>
+        </div>
     </div>
 
-    <div id="sip" class="calculator">
-        <h2>SIP Calculator</h2>
-        <label>Monthly SIP Amount:</label>
-        <input type="number" id="sipAmount" value="5000" oninput="syncSlider('sipAmount', 'sipAmountSlider')">
-        <input type="range" id="sipAmountSlider" min="1000" max="100000" step="500" value="5000" oninput="syncInput('sipAmountSlider', 'sipAmount')">
-
-        <label>Annual Return Rate (%):</label>
-        <input type="number" id="sipRate" value="12" oninput="syncSlider('sipRate', 'sipRateSlider')">
-        <input type="range" id="sipRateSlider" min="1" max="20" step="0.1" value="12" oninput="syncInput('sipRateSlider', 'sipRate')">
-
-        <label>Investment Duration (Years):</label>
-        <input type="number" id="sipYears" value="10" oninput="syncSlider('sipYears', 'sipYearsSlider')">
-        <input type="range" id="sipYearsSlider" min="1" max="30" step="1" value="10" oninput="syncInput('sipYearsSlider', 'sipYears')">
-
-        <button onclick="calculateSIP()">Calculate</button>
-        <div id="sipResult"></div>
-    </div>
-
-    <div id="swp" class="calculator" style="display: none;">
-        <h2>SWP Calculator</h2>
-        <label>Initial Investment:</label>
-        <input type="number" id="swpInitial" value="1000000">
-        
-        <label>Monthly Withdrawal:</label>
-        <input type="number" id="swpWithdraw" value="10000">
-        
-        <label>Annual Return Rate (%):</label>
-        <input type="number" id="swpRate" value="10">
-        
-        <label>Withdrawal Period (Years):</label>
-        <input type="number" id="swpYears" value="10">
-        
-        <button onclick="calculateSWP()">Calculate</button>
-        <div id="swpResult"></div>
-    </div>
-
-    <div id="lumpsum" class="calculator" style="display: none;">
-        <h2>Lumpsum Calculator</h2>
-        <label>Initial Investment:</label>
-        <input type="number" id="lumpAmount" value="500000">
-        
-        <label>Annual Return Rate (%):</label>
-        <input type="number" id="lumpRate" value="12">
-        
-        <label>Investment Duration (Years):</label>
-        <input type="number" id="lumpYears" value="10">
-        
-        <button onclick="calculateLumpsum()">Calculate</button>
-        <div id="lumpResult"></div>
-    </div>
-
-    <div id="sip-swp" class="calculator" style="display: none;">
-        <h2>SIP & SWP Calculator</h2>
-        <label>Monthly SIP Amount:</label>
-        <input type="number" id="sipSwpAmount" value="5000">
-
-        <label>Annual Return Rate (%):</label>
-        <input type="number" id="sipSwpRate" value="12">
-
-        <label>Investment Duration (Years):</label>
-        <input type="number" id="sipSwpYears" value="10">
-
-        <label>Monthly Withdrawal:</label>
-        <input type="number" id="sipSwpWithdraw" value="10000">
-
-        <label>Withdrawal Period (Years):</label>
-        <input type="number" id="sipSwpWithdrawYears" value="10">
-
-        <button onclick="calculateSIPSWP()">Calculate</button>
-        <div id="sipSwpResult"></div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="assets/js/financecalculator.js"></script>
 </body>
 </html>

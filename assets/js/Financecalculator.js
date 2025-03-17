@@ -1,3 +1,18 @@
+// Tab Switching
+ function openTab(event, tabName) {
+     let tabContent = document.getElementsByClassName("tab-content");
+     let tabButtons = document.getElementsByClassName("tab-btn");
+ 
+     for (let tab of tabContent) {
+         tab.classList.remove("active");
+     }
+     for (let button of tabButtons) {
+         button.classList.remove("active");
+     }
+ 
+     document.getElementById(tabName).classList.add("active");
+     event.currentTarget.classList.add("active");
+     
 // Function to format numbers in Indian numbering format
 function formatIndianNumber(num) {
     return new Intl.NumberFormat('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(num);

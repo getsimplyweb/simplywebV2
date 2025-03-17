@@ -12,6 +12,12 @@
  
      document.getElementById(tabName).classList.add("active");
      event.currentTarget.classList.add("active");
+ }
+
+// Ensure the first tab is open by default
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".tab-btn").click();
+});
      
 // Function to format numbers in Indian numbering format
 function formatIndianNumber(num) {

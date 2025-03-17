@@ -1,17 +1,6 @@
-// Tab Switching
-function openTab(event, tabName) {
-    let tabContent = document.getElementsByClassName("tab-content");
-    let tabButtons = document.getElementsByClassName("tab-btn");
-
-    for (let tab of tabContent) {
-        tab.classList.remove("active");
-    }
-    for (let button of tabButtons) {
-        button.classList.remove("active");
-    }
-
-    document.getElementById(tabName).classList.add("active");
-    event.currentTarget.classList.add("active");
+// Function to format numbers in Indian numbering format
+function formatIndianNumber(num) {
+    return new Intl.NumberFormat('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(num);
 }
 
 // SIP Calculator with Inflation
@@ -28,9 +17,9 @@ function calculateSIP() {
     let profitEarned = futureValue - amountInvested;
 
     document.getElementById("sipResult").innerHTML = `
-        Amount Invested: ₹${amountInvested.toFixed(2)}<br>
-        Profit Earned: ₹${profitEarned.toFixed(2)}<br>
-        Final Value: ₹${futureValue.toFixed(2)}
+        <div class="result-line"><strong>Amount Invested:</strong> ₹${formatIndianNumber(amountInvested)}</div>
+        <div class="result-line"><strong>Profit Earned:</strong> ₹${formatIndianNumber(profitEarned)}</div>
+        <div class="result-line"><strong>Final Value:</strong> ₹${formatIndianNumber(futureValue)}</div>
     `;
 }
 
@@ -57,9 +46,9 @@ function calculateSWP() {
     let profitEarned = P + totalWithdrawn - initialInvestment;
 
     document.getElementById("swpResult").innerHTML = `
-        Amount Invested: ₹${initialInvestment.toFixed(2)}<br>
-        Profit Earned: ₹${profitEarned.toFixed(2)}<br>
-        Final Value: ₹${P.toFixed(2)}
+        <div class="result-line"><strong>Amount Invested:</strong> ₹${formatIndianNumber(initialInvestment)}</div>
+        <div class="result-line"><strong>Profit Earned:</strong> ₹${formatIndianNumber(profitEarned)}</div>
+        <div class="result-line"><strong>Final Value:</strong> ₹${formatIndianNumber(P)}</div>
     `;
 }
 
@@ -73,9 +62,9 @@ function calculateLumpsum() {
     let profitEarned = futureValue - P;
 
     document.getElementById("lumpResult").innerHTML = `
-        Amount Invested: ₹${P.toFixed(2)}<br>
-        Profit Earned: ₹${profitEarned.toFixed(2)}<br>
-        Final Value: ₹${futureValue.toFixed(2)}
+        <div class="result-line"><strong>Amount Invested:</strong> ₹${formatIndianNumber(P)}</div>
+        <div class="result-line"><strong>Profit Earned:</strong> ₹${formatIndianNumber(profitEarned)}</div>
+        <div class="result-line"><strong>Final Value:</strong> ₹${formatIndianNumber(futureValue)}</div>
     `;
 }
 
@@ -87,12 +76,10 @@ function calculateSIPSWP() {
     let withdrawAmount = Number(document.getElementById("sipSwpWithdraw").value);
     let withdrawYears = Number(document.getElementById("sipSwpWithdrawYears").value);
 
-    // Step 1: Calculate SIP Future Value
     let months = investYears * 12;
     let sipFutureValue = sipAmount * ((Math.pow(1 + rate, months) - 1) / rate) * (1 + rate);
     let totalInvested = sipAmount * months;
 
-    // Step 2: Perform SWP on SIP Amount
     let remainingAmount = sipFutureValue;
     let withdrawMonths = withdrawYears * 12;
     let totalWithdrawn = 0;
@@ -110,9 +97,9 @@ function calculateSIPSWP() {
     let profitEarned = (sipFutureValue + totalWithdrawn) - totalInvested;
 
     document.getElementById("sipSwpResult").innerHTML = `
-        Amount Invested: ₹${totalInvested.toFixed(2)}<br>
-        Profit Earned: ₹${profitEarned.toFixed(2)}<br>
-        Amount Withdrawn: ₹${totalWithdrawn.toFixed(2)}<br>
-        Final Value: ₹${remainingAmount.toFixed(2)}
+        <div class="result-line"><strong>Amount Invested:</strong> ₹${formatIndianNumber(totalInvested)}</div>
+        <div class="result-line"><strong>Profit Earned:</strong> ₹${formatIndianNumber(profitEarned)}</div>
+        <div class="result-line"><strong>Amount Withdrawn:</strong> ₹${formatIndianNumber(totalWithdrawn)}</div>
+        <div class="result-line"><strong>Final Value:</strong> ₹${formatIndianNumber(remainingAmount)}</div>
     `;
 }

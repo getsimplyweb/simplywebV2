@@ -93,3 +93,13 @@ button:hover {
         padding: 8px;
     }
 }
+
+.result-line {
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+    margin: 5px 0;
+}
+

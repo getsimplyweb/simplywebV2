@@ -26,22 +26,22 @@ function formatIndianNumber(num) {
 
 // SIP Calculator with Inflation
 function calculateSIP() {
-   let P = Number(document.getElementById("sipAmount").value);
-   let r = Number(document.getElementById("sipRate").value) / 100 / 12;
-   let n = Number(document.getElementById("sipYears").value) * 12;
-   let i = Number(document.getElementById("inflationRate").value) / 100;
-
-   let futureValue = P * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
-   futureValue /= Math.pow(1 + i, n / 12);
-
-   let amountInvested = P * n;
-   let profitEarned = futureValue - amountInvested;
-
-   document.getElementById("sipResult").innerHTML = `
-       <div class="result-line"><strong>Amount Invested:</strong> ₹${formatIndianNumber(amountInvested)}</div>
-       <div class="result-line"><strong>Profit Earned:</strong> ₹${formatIndianNumber(profitEarned)}</div>
-       <div class="result-line"><strong>Final Value:</strong> ₹${formatIndianNumber(futureValue)}</div>
-   `;
+    let P = Number(document.getElementById("sipAmount").value);
+    let r = Number(document.getElementById("sipRate").value) / 100 / 12;
+    let n = Number(document.getElementById("sipYears").value) * 12;
+    let i = Number(document.getElementById("inflationRate").value) / 100;
+    
+    let futureValue = P * ((Math.pow(1 + r, n) - 1) / r);
+    futureValue /= Math.pow(1 + i, n / 12);
+    
+    let amountInvested = P * n;
+    let profitEarned = futureValue - amountInvested;
+    
+    document.getElementById("sipResult").innerHTML = `
+        <div class="result-line"><strong>Amount Invested:</strong> ₹${formatIndianNumber(amountInvested)}</div>
+        <div class="result-line"><strong>Profit Earned:</strong> ₹${formatIndianNumber(profitEarned)}</div>
+        <div class="result-line"><strong>Final Value:</strong> ₹${formatIndianNumber(futureValue)}</div>
+    `;    
 }
 
 // SWP Calculator

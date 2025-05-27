@@ -1056,6 +1056,13 @@ h1 {
   transition: transform 0.3s ease;
 }
 
+a.card {
+  text-decoration: none;
+  color: white;
+  display: flex;
+}
+
+
 /* Gradient backgrounds for each card */
 .card-designers {
   background: linear-gradient(135deg, #1e3c72, #2a5298);

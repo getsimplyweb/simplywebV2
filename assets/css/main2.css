@@ -1027,3 +1027,60 @@ section {
 .features-cards .feature-box.red i {
   color: #f28484;
 }
+
+/*--------------------------------------------------------------
+# Test Cards Section
+--------------------------------------------------------------*/
+.container {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.card {
+  position: relative;
+  height: 120px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.card span {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 12px;
+  border-radius: 12px;
+}
+
+/* Gradient backgrounds for each card */
+.card-designers {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+.card-marketers {
+  background: linear-gradient(135deg, #a770ef, #cf8bf3, #fdb99b);
+}
+
+.card-vfx {
+  background: linear-gradient(135deg, #00c9ff, #92fe9d);
+}
+
+.card-creators {
+  background: linear-gradient(135deg, #f857a6, #ff5858);
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+

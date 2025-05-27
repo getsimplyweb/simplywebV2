@@ -350,11 +350,21 @@
     </section>
 
     <script>
-      // Load items.html content into the section
+      fetch('test.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('test').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading test.html:', error));
+    </script>
+
+    <script>
       fetch('Pages/Templates.html')
         .then(response => response.text())
         .then(data => {
-          document.getElementById('templates').innerHTML = data;
+          // Insert the items.html content above the existing content
+          const section = document.getElementById('templates');
+          section.insertAdjacentHTML('afterbegin', data);
         })
         .catch(error => console.error('Error loading Pages/templates.html:', error));
     </script>

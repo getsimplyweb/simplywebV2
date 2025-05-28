@@ -1058,9 +1058,14 @@ h1 {
 
 a.card {
   text-decoration: none;
-  color: white;
+  color: inherit;
   display: flex;
 }
+
+a.card span {
+  color: white;
+}
+
 
 
 /* Gradient backgrounds for each card */

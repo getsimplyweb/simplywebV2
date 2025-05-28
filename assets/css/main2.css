@@ -26,7 +26,7 @@ body {
 }
 
 a {
-  color: var(--color-primary);
+  color: white;
   text-decoration: none;
 }
 
@@ -1055,18 +1055,6 @@ h1 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease;
 }
-
-a.card {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-}
-
-a.card span {
-  color: white;
-}
-
-
 
 /* Gradient backgrounds for each card */
 .card-designers {

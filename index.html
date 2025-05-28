@@ -64,13 +64,42 @@
   <!-- ======= Header ======= -->
   <div id="header"></div>
 
-  <script>
+  <!-- <script>
     fetch('Pages/Header.html')
       .then(response => response.text())
       .then(data => {
         document.getElementById('header').innerHTML = data;
       })
       .catch(error => console.error('Error loading Pages/Header.html:', error));
+  </script> -->
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+
+        // Initialize toggle only after header is injected
+        const nav = document.querySelector('#navbar');
+        const showBtn = document.querySelector('.mobile-nav-show');
+        const hideBtn = document.querySelector('.mobile-nav-hide');
+
+        function toggleMobileNav(show) {
+          if (show) {
+            nav.classList.add('navbar-mobile');
+            showBtn.classList.add('d-none');
+            hideBtn.classList.remove('d-none');
+          } else {
+            nav.classList.remove('navbar-mobile');
+            showBtn.classList.remove('d-none');
+            hideBtn.classList.add('d-none');
+          }
+        }
+
+        if (showBtn && hideBtn && nav) {
+          showBtn.addEventListener('click', () => toggleMobileNav(true));
+          hideBtn.addEventListener('click', () => toggleMobileNav(false));
+        }
+      });
   </script>
   <!-- End Header -->
 

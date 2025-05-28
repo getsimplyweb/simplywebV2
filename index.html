@@ -62,24 +62,16 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="header d-flex align-items-center">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <h1>SimplyWeb<span>.</span></h1>
-      </a>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#templates">Our Templates</a></li>
-          <li><a href="#products">Our Products</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav><!-- .navbar -->
+  <div id="header"></div>
 
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-    </div>
-  </header>
+  <script>
+    fetch('Pages/Header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading Pages/Header.html:', error));
+  </script>
   <!-- End Header -->
 
   <main id="main">
@@ -312,15 +304,6 @@
           released.</p>
       </div>
     </section><!-- End About Us Section -->
-
-    <script>
-      fetch('test.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('test').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading test.html:', error));
-    </script>
 
     <script>
       fetch('Pages/Templates.html')

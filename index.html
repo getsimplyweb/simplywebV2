@@ -60,21 +60,19 @@
 </head>
 
 <body>
-
-  <!-- ======= Header ======= -->
-  <div id="header"></div>
-
-  <script>
-    fetch('Pages/Header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      })
-      .catch(error => console.error('Error loading Pages/Header.html:', error));
-  </script>
-  <!-- End Header -->
-
   <main id="main">
+    <!-- ======= Header ======= -->
+    <div id="header"></div>
+
+    <script>
+      fetch('Pages/Header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading Pages/Header.html:', error));
+    </script>
+    <!-- End Header -->
     <!-- ======= Clients Section 1 ======= -->
     <section id="clients" class="clients">
       <div class="container" data-aos>

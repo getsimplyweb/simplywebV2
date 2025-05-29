@@ -49,10 +49,11 @@ function calculateSIP() {
     let profitEarned = futureValue - amountInvested;
 
     document.getElementById("sipResult").innerHTML = `
-       <div class="result-line"><strong>Amount Invested:</strong> ₹${formatIndianNumber(amountInvested)}</div>
-       <div class="result-line"><strong>Profit Earned:</strong> ₹${formatIndianNumber(profitEarned)}</div>
-       <div class="result-line"><strong>Final Value:</strong> ₹${formatIndianNumber(futureValue)}</div>
-   `;
+   <div class="result-line"><span class="label">Amount Invested:</span><span class="value">₹${formatIndianNumber(amountInvested)}</span></div>
+   <div class="result-line"><span class="label">Profit Earned:</span><span class="value">₹${formatIndianNumber(profitEarned)}</span></div>
+   <div class="result-line"><span class="label">Final Value:</span><span class="value">₹${formatIndianNumber(futureValue)}</span></div>
+`;
+
 }
 
 // SWP Calculator

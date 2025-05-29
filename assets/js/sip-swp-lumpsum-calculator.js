@@ -31,7 +31,7 @@ function calculateSIP() {
     let n = Number(document.getElementById("sipYears").value) * 12;
     let i = Number(document.getElementById("inflationRate").value) / 100;
 
-    let futureValue = P * ((Math.pow(1 + r, n) - 1) / r); //* (1 + r);
+    let futureValue = P * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
     // futureValue /= Math.pow(1 + i, n / 12);
 
     let amountInvested = P * n;

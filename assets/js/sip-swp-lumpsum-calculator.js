@@ -79,11 +79,11 @@ function calculateSWP() {
     let profitEarned = P + totalWithdrawn - initialInvestment;
 
     document.getElementById("swpResult").innerHTML = `
-       <div class="result-line"><strong>Amount Invested:</strong> ₹${formatIndianNumber(initialInvestment)}</div>
-       <div class="result-line"><strong>Amount Withdrawn:</strong> ₹${formatIndianNumber(totalWithdrawn)}</div>
-       <div class="result-line"><strong>Profit Earned:</strong> ₹${formatIndianNumber(profitEarned)}</div>
-       <div class="result-line"><strong>Final Value:</strong> ₹${formatIndianNumber(P)}</div>
-   `;
+    <div class="result-line"><span class="label">Amount Invested:</span><span class="value">₹${formatIndianNumber(initialInvestment)}</span></div>
+    <div class="result-line"><span class="label">Amount Withdrawn:</span><span class="value">₹${formatIndianNumber(totalWithdrawn)}</span></div>
+    <div class="result-line"><span class="label">Profit Earned:</span><span class="value">₹${formatIndianNumber(profitEarned)}</span></div>
+    <div class="result-line"><span class="label">Final Value:</span><span class="value">₹${formatIndianNumber(P)}</span></div>
+`;
 }
 
 // Lumpsum Calculator
@@ -96,10 +96,10 @@ function calculateLumpsum() {
     let profitEarned = futureValue - P;
 
     document.getElementById("lumpResult").innerHTML = `
-       <div class="result-line"><strong>Amount Invested:</strong> ₹${formatIndianNumber(P)}</div>
-       <div class="result-line"><strong>Profit Earned:</strong> ₹${formatIndianNumber(profitEarned)}</div>
-       <div class="result-line"><strong>Final Value:</strong> ₹${formatIndianNumber(futureValue)}</div>
-   `;
+    <div class="result-line"><span class="label">Amount Invested:</span><span class="value">₹${formatIndianNumber(P)}</span></div>
+    <div class="result-line"><span class="label">Profit Earned:</span><span class="value">₹${formatIndianNumber(profitEarned)}</span></div>
+    <div class="result-line"><span class="label">Final Value:</span><span class="value">₹${formatIndianNumber(futureValue)}</span></div>
+`;
 }
 
 // SIP & SWP Calculator
@@ -131,9 +131,9 @@ function calculateSIPSWP() {
     let profitEarned = (sipFutureValue + totalWithdrawn) - totalInvested;
 
     document.getElementById("sipSwpResult").innerHTML = `
-       <div class="result-line"><strong>Amount Invested:</strong> ₹${formatIndianNumber(totalInvested)}</div>
-       <div class="result-line"><strong>Profit Earned:</strong> ₹${formatIndianNumber(profitEarned)}</div>
-       <div class="result-line"><strong>Amount Withdrawn:</strong> ₹${formatIndianNumber(totalWithdrawn)}</div>
-       <div class="result-line"><strong>Final Value:</strong> ₹${formatIndianNumber(remainingAmount)}</div>
-   `;
+    <div class="result-line"><span class="label">Amount Invested:</span><span class="value">₹${formatIndianNumber(totalInvested)}</span></div>
+    <div class="result-line"><span class="label">Profit Earned:</span><span class="value">₹${formatIndianNumber(profitEarned)}</span></div>
+    <div class="result-line"><span class="label">Amount Withdrawn:</span><span class="value">₹${formatIndianNumber(totalWithdrawn)}</span></div>
+    <div class="result-line"><span class="label">Final Value:</span><span class="value">₹${formatIndianNumber(remainingAmount)}</span></div>
+`;
 }

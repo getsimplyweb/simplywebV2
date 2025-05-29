@@ -98,6 +98,10 @@ button:hover {
     font-weight: bold;
     text-align: center;
     font-size: 1.1em;
+    display: flex;    /*added */
+    justify-content: space-between; /*added */
+    font-family: monospace; /* crucial for consistent character width */
+    white-space: pre;        /* preserve spacing */
 }
 
 /* Responsive Design */

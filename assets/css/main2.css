@@ -633,6 +633,9 @@ section {
   padding: 1px 0;
 }
 
+.swipecontainer {
+  padding: 0px;
+}
 .clients .swiper {
   padding: 5px 0;
 }

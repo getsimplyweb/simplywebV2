@@ -79,6 +79,7 @@ function calculateSWP() {
 
     document.getElementById("swpResult").innerHTML = `
        <div class="result-line"><strong>Amount Invested:</strong> ₹${formatIndianNumber(initialInvestment)}</div>
+       <div class="result-line"><strong>Amount Withdrawn:</strong> ₹${formatIndianNumber(totalWithdrawn)}</div>
        <div class="result-line"><strong>Profit Earned:</strong> ₹${formatIndianNumber(profitEarned)}</div>
        <div class="result-line"><strong>Final Value:</strong> ₹${formatIndianNumber(P)}</div>
    `;

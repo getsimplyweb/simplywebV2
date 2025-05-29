@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investment Calculators</title>
     <link rel="stylesheet" href="assets/css/sip-swp-lumpsum-calculator.css">
 </head>
+
 <body>
 
     <div class="container">
@@ -15,6 +17,7 @@
             <button class="tab-btn" onclick="openTab(event, 'swp')">SWP Calculator</button>
             <button class="tab-btn" onclick="openTab(event, 'lumpsum')">Lumpsum Calculator</button>
             <button class="tab-btn" onclick="openTab(event, 'sip-swp')">SIP & SWP Calculator</button>
+            <button onclick="openTab1(event, 'test')">Open Test</button>
         </div>
 
         <!-- SIP Calculator with Inflation -->
@@ -110,6 +113,21 @@
         </div>
     </div>
 
+    
+<div id="tab-content"></div>
+
     <script src="assets/js/sip-swp-lumpsum-calculator.js"></script>
+
+    <script>
+        function openTab1(event, tabName) {
+            fetch('sipcalculator.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById("tab-content").innerHTML = html;
+                });
+        }
+    </script>
+
 </body>
+
 </html>

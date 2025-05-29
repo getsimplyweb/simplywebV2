@@ -646,26 +646,10 @@ section {
   transform: scale(1.1);
 }
 
-.clients .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.clients .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  background-color: #ddd;
-}
-
 .clients .clientsswipe {
   border-radius: 10px;
   width: 100%;
   height: 100px;
-}
-.clients .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--color-primary);
 }
 
 /*--------------------------------------------------------------

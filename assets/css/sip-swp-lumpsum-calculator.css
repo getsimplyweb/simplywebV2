@@ -96,7 +96,7 @@ button:hover {
 #sipResult, #swpResult, #lumpResult, #sipSwpResult {
     margin-top: 10px;
     font-weight: 500;
-    font-size: 1.1em;
+    /* font-size: 1.1em; */
     text-align: left; /* important for label-value layout */
     background-color: #f0f8ff; /* light blue background */
     border-radius: 12px;       /* curved edges */

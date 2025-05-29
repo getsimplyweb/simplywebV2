@@ -26,13 +26,24 @@ function formatIndianNumber(num) {
 
 // SIP Calculator with Inflation
 function calculateSIP() {
-    let P = Number(document.getElementById("sipAmount").value);
-    let r = Number(document.getElementById("sipRate").value) / 100 / 12;
-    let n = Number(document.getElementById("sipYears").value) * 12;
-    let i = Number(document.getElementById("inflationRate").value) / 100;
+    //let P = Number(document.getElementById("sipAmount").value);
+    //let r = Number(document.getElementById("sipRate").value) / 100 / 12;
+    //let n = Number(document.getElementById("sipYears").value) * 12;
+    //let i = Number(document.getElementById("inflationRate").value) / 100;
 
-    let futureValue = P * ((Math.pow(1 + (r - i), n) - 1) / r) * (1 + (r - i));
+    //let futureValue = P * ((Math.pow(1 + (r - i), n) - 1) / r) * (1 + (r - i));
     //futureValue /= Math.pow(1 + i, n / 12);
+
+    let P = Number(document.getElementById("sipAmount").value);
+    let annualRate = Number(document.getElementById("sipRate").value);        // Annual SIP return rate
+    let inflation = Number(document.getElementById("inflationRate").value);   // Annual inflation rate
+
+    let realAnnualRate = annualRate - inflation;     // Adjust for inflation first
+    let r = realAnnualRate / 100 / 12;               // Convert to monthly rate after inflation adjustment
+
+    let n = Number(document.getElementById("sipYears").value) * 12;
+
+    let futureValue = P * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
 
     let amountInvested = P * n;
     let profitEarned = futureValue - amountInvested;

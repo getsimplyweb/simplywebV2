@@ -97,7 +97,7 @@ button:hover {
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
-    /* font-weight: bold; */
+    font-weight: 500;
     font-size: 1.1em;
     text-align: left; /* important for label-value layout */
     background-color: #f0f8ff; /* light blue background */
@@ -109,7 +109,12 @@ button:hover {
 .result-line {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc; /* thin line between lines */
+}
+
+.result-line:last-child {
+    border-bottom: none; /* remove line after the last item */
 }
 
 .result-line .label {
@@ -121,7 +126,6 @@ button:hover {
     flex: 1;
     text-align: right;
 }
-
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {

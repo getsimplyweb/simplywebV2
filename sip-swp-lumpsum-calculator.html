@@ -18,10 +18,14 @@
 
 <body style="margin: 0; padding-top: 100px;">
     <!-- Header container -->
-    <div id="header-container"></div>
+    <!-- <div id="header-container"></div> -->
+
+    <div id="header-container">
+        <?php include('Pages/Header.html'); ?>
+    </div>
 
     <!-- Script to load header -->
-    <script>
+    <!-- <script>
         fetch('Pages/Header.html')
             .then(response => response.text())
             .then(data => {
@@ -32,7 +36,7 @@
                     document.getElementById('nav-links').classList.toggle('active');
                 };
             });
-    </script>
+    </script> -->
 
     <div class="container">
         <h1>Investment Calculators</h1>

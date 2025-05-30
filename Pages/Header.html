@@ -1,12 +1,21 @@
 <!-- header.html -->
-<header style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; width: 95%; max-width: 1200px; background-color: white; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-  <div style="font-size: 1.5em; font-weight: bold;">
-    SimplyWeb<span style="color: #f28b82;">.</span>
+<link rel="stylesheet" href="assets/css/header.css" />
+
+<header class="site-header">
+  <div class="logo">
+    SimplyWeb<span class="dot">.</span>
   </div>
-  <nav style="display: flex; gap: 30px;">
-    <a href="index.html" style="text-decoration: none; font-weight: bold; color: black;">Home</a>
-    <a href="templates.html" style="text-decoration: none; font-weight: bold; color: black;">Our Templates</a>
-    <a href="products.html" style="text-decoration: none; font-weight: bold; color: black;">Our Products</a>
-    <a href="contact.html" style="text-decoration: none; font-weight: bold; color: black;">Contact</a>
+  <nav class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="templates.html">Our Templates</a>
+    <a href="products.html">Our Products</a>
+    <a href="contact.html">Contact</a>
   </nav>
+  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
 </header>
+
+<script>
+  document.getElementById('menu-toggle').onclick = function () {
+    document.getElementById('nav-links').classList.toggle('active');
+  };
+</script>

@@ -67,21 +67,7 @@
 /* Mobile styles */
 @media (max-width: 768px) {
     .site-header {
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 95%;
-        max-width: 1200px;
-        background: white;
-        border-radius: 16px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 16px 24px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        /* font-family: "Montserrat", sans-serif; */
-        z-index: 1000;
+        padding: 7px 7px;
     }
 
     .nav-links {

@@ -26,8 +26,14 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-container').innerHTML = data;
+
+                // Now attach the event listener
+                document.getElementById('menu-toggle').onclick = function () {
+                    document.getElementById('nav-links').classList.toggle('active');
+                };
             });
     </script>
+
     <div class="container">
         <h1>Investment Calculators</h1>
         <div class="tabs">

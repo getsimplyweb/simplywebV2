@@ -18,25 +18,7 @@
 
 <body style="margin: 0; padding-top: 100px;">
     <!-- Header container -->
-    <!-- <div id="header-container"></div> -->
-
-    <div id="header-container">
-        <?php include('Pages/Header.html'); ?>
-    </div>
-
-    <!-- Script to load header -->
-    <!-- <script>
-        fetch('Pages/Header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-container').innerHTML = data;
-
-                // Now attach the event listener
-                document.getElementById('menu-toggle').onclick = function () {
-                    document.getElementById('nav-links').classList.toggle('active');
-                };
-            });
-    </script> -->
+    <div id="header-container"></div>
 
     <div class="container">
         <h1>Investment Calculators</h1>
@@ -139,12 +121,35 @@
             <button onclick="calculateSIPSWP()">Calculate</button>
             <div id="sipSwpResult"></div>
         </div>
+
+        <!-- <div id="tab-content"></div> -->
     </div>
 
-
-    <!-- <div id="tab-content"></div> -->
-
     <script src="assets/js/sip-swp-lumpsum-calculator.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            try {
+                const response = await fetch('Pages/Header.html');
+                const headerHTML = await response.text();
+                document.getElementById('header-container').innerHTML = headerHTML;
+
+                // Attach event listener if menu-toggle exists
+                const toggle = document.getElementById('menu-toggle');
+                if (toggle) {
+                    toggle.onclick = function () {
+                        document.getElementById('nav-links').classList.toggle('active');
+                    };
+                }
+
+                // Show main content after header is loaded
+                document.getElementById('main-content').style.display = 'block';
+            } catch (e) {
+                console.error("Error loading header:", e);
+            }
+        });
+    </script>
+
 
     <!-- <script>
         function openTab1(event, tabName) {

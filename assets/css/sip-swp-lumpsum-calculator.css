@@ -6,8 +6,7 @@ body {
 }
 
 .container {
-    max-width: 90%;
-    width: 600px;
+    max-width: 95%;
     margin: auto;
     background: white;
     padding: 20px;
@@ -41,7 +40,7 @@ h1, h2 {
 }
 
 .tab-btn.active {
-    background: #007BFF;
+    background: black;
     color: white;
 }
 
@@ -79,7 +78,7 @@ h1, h2 {
 button {
     width: 100%;
     padding: 12px;
-    background: #007BFF;
+    background: black;
     color: white;
     border: none;
     cursor: pointer;
@@ -89,7 +88,7 @@ button {
 }
 
 button:hover {
-    background: #0056b3;
+    background: black;
 }
 
 /* Result Styling */
@@ -128,7 +127,7 @@ button:hover {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .container {
-        width: 95%;
+        width: 90%;
         padding: 15px;
     }
 
